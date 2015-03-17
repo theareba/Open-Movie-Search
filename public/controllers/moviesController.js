@@ -6,7 +6,7 @@ function($scope, $http){
 	$scope.movie = '[]';
 
 	$scope.submit = function() {
-        $http({method : 'GET', url : 'http://www.omdbapi.com/?t=' + $scope.movieSearch})
+        $http({method : 'GET', url : 'https://www.omdbapi.com/?t=' + $scope.movieSearch})
 	    .success(function(data, status) {
 	        $scope.movie = data;
 	        $scope.image = data["Poster"].replace(/\"/g, "");
