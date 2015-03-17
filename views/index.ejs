@@ -33,10 +33,7 @@
       </div> <!-- / container -->
     </div> <!-- / navbar -->
 
-
-
     <div ng-controller="MoviesCtrl">
-          <!-- Topic Header -->
       <div class="color-jumbotron">
         <div class="container">
           <div class="row">
@@ -53,7 +50,7 @@
         </div> <!-- / .container -->
       </div> <!-- / .color-jumbotron -->
 	  	<!-- Wrapper -->
-      <div class="container" ng-show on="movie">
+      <div class="container">
 	  	<!-- Topic Header -->
         <h3 class="headline first-child text-color">
           <span class="border-color">{{movie.Title | json }}</span>
@@ -76,10 +73,9 @@
             </div>
           </div>
           <div class="col-sm-6">
-            Year: <p class="text-muted">{{ movie.Year | json }}</p>
-            Genre: <p class="text-muted">{{ movie.Genre | json }}</p>
-            Rating: <p class="text-muted">{{ movie.imdbRating | json }}</p>
-            <h3 class="first-child first-child-m primary-font">Plot</h3>
+            <p class="text-muted">{{ movie.Year | json }}</p>
+            <p class="text-muted">{{ movie.Genre | json }}</p>
+            <p class="text-muted">{{ movie.imdbRating | json }}</p>
             <p class="text-muted">{{ movie.Plot | json }}</p>
           </div>
         </div> <!-- / .row -->
@@ -87,17 +83,5 @@
         </div> <!-- / .container -->
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer class="footer-dark">
-      <div class="container">
-        <!-- Copyrights -->
-        <div class="row">
-          <div class="col-sm-12">
-            <p>&copy; OMDb 2015.</p>
-          </div>
-        </div>
-      </div>
-    </footer>
   </body>
 </html>
