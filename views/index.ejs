@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title><%= title %></title>
+
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" href="/stylesheets/animate.css" />
+        <!-- Google Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="/stylesheets/color-styles.css" /> 
+    <link rel="stylesheet" href="/stylesheets/ui-elements.css" />  
+    <link rel="stylesheet" href="/stylesheets/custom.css" />  
+    
+    
+    <script src="/javascripts/angular.min.js"></script>
+    <script src="/javascripts/custom.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js"></script>
+    <script src="/controllers/moviesController.js"></script>
+  </head>
+
+  <body class="body-green" ng-app="OMDbSearch">
+
+    <div class="navbar navbar-dark navbar-static-top" role="navigation">
+      <div class="container">
+
+        <!-- Navbar Header -->
+        <div class="navbar-header">
+          <a class="navbar-brand" href="index.html"><i class="fa fa-th-large"></i> OMDb Search <span class="hidden-sm">All movies a click away</span></a>
+        </div> <!-- / Navbar Header -->
+      </div> <!-- / container -->
+    </div> <!-- / navbar -->
+
+
+
+    <div ng-controller="MoviesCtrl">
+          <!-- Topic Header -->
+      <div class="color-jumbotron">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <h1 class="text-center">Search Movies</h1>
+              <form class="form-inline text-center" ng-submit="submit()">
+	            <div class="form-group">
+	  	          <input type="text" class="form-control border-color col-sm-12" placeholder="Enter Movie Name" ng-model="movieSearch"></input>
+	  	        </div>
+	  	        <button type="submit" class="btn btn-color">Search</button>
+	  	      </form>
+            </div>
+          </div> <!-- / .row -->
+        </div> <!-- / .container -->
+      </div> <!-- / .color-jumbotron -->
+	  	<!-- Wrapper -->
+      <div class="container" ng-show on="movie">
+	  	<!-- Topic Header -->
+        <h3 class="headline first-child text-color">
+          <span class="border-color">{{movie.Title | json }}</span>
+        </h3>
+	    
+
+	    <div class="container">
+        <div class="row port-item-p">
+          <div class="col-sm-6">
+            <div class="port-slideshow-p">
+              <!-- Image Carousel -->
+              <div id="port-slideshow-p" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                  <div class="item active">
+                    <img ng-src="{{image}}" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            Year: <p class="text-muted">{{ movie.Year | json }}</p>
+            Genre: <p class="text-muted">{{ movie.Genre | json }}</p>
+            Rating: <p class="text-muted">{{ movie.imdbRating | json }}</p>
+            <h3 class="first-child first-child-m primary-font">Plot</h3>
+            <p class="text-muted">{{ movie.Plot | json }}</p>
+          </div>
+        </div> <!-- / .row -->
+       
+        </div> <!-- / .container -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-dark">
+      <div class="container">
+        <!-- Copyrights -->
+        <div class="row">
+          <div class="col-sm-12">
+            <p>&copy; OMDb 2015.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
